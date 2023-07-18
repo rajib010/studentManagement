@@ -15,7 +15,7 @@ while($row=$result->fetch_assoc()){
  <?php
 }
 
-    ?>
+?>
    </select>
     City: <br> 
     <input type="text" name="city">

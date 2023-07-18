@@ -8,3 +8,4 @@
 <a href="../course/displayCourse.php">Display Course</a>
 <a href="../location/add_district.php">Add district</a>
 <a href="../location/add_city.php">Add City</a>
+<a href="../stream/addStream.php">Add Stream</a>
