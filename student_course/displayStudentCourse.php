@@ -32,9 +32,10 @@ $result = $conn->query($sql);
             <td> <?= $row['Name'] ?> </td>
             <td> <?= $row['Title'] ?> </td>
             <td>
-                <a href="../payment/addPayment.php?id=<?=$id?>">ADD</a>
-                <a href="../payment/displayPayment.php?id=<?=$id?>">VIEW</a>
+                <a href="../payment/addPayment.php?id=<?=$row['id']?>">ADD</a>
+                <a href="../payment/displayPayment.php?id=<?=$row['id']?>">VIEW</a>
             </td>
+            
             <td>
                 <a href="editStudentCourse.php?scid=<?= $row['scID']?> &sid=<?=$id ?>">EDIT</a>
                 <a href="deleteStudentCourse.php?scid=<?= $row['scID']?> &sid=<?=$id ?>">DELETE</a>

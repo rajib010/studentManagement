@@ -1,6 +1,16 @@
 <?php
+
+
+
+
 include("../config.php");
+
+
+
 ?>
+
+
+
 <form action="confirmStudent.php" method="post">
   Name: <br>
   <input type="text" name="sName"> <br><br>

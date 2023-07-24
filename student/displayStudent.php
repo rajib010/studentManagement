@@ -3,9 +3,11 @@ include("../config.php");
 include("../navbar.php");
 $sql = "SELECT * FROM student_record";
 $result = $conn->query($sql);
+
 ?>
 <table border="1">
     <thead>
+        
         <tr>
             <th>Student ID</th>
             <th>Name</th>
@@ -19,7 +21,7 @@ $result = $conn->query($sql);
     </thead>
 
         <?php
-        while ($row = $result->fetch_assoc()) {
+           while ($row = $result->fetch_assoc()) {
         ?>
 
             <tr>

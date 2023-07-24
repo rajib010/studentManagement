@@ -1,4 +1,6 @@
 <?php
+
+    include "../../config.php";
     if(isset($_POST['submitBtn'])){
         include "../../config.php";
         $field= $_POST['interestedFields'];
