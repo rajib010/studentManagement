@@ -1,6 +1,6 @@
 <?php
+include("../pages/navbar.php");
 include("../config.php");
-include("../navbar.php");
 
 $id = $_GET['id'];
 
@@ -32,13 +32,13 @@ $result = $conn->query($sql);
             <td> <?= $row['Name'] ?> </td>
             <td> <?= $row['Title'] ?> </td>
             <td>
-                <a href="../payment/addPayment.php?id=<?=$row['id']?>">ADD</a>
-                <a href="../payment/displayPayment.php?id=<?=$row['id']?>">VIEW</a>
+                <a href="../payment/addPayment.php?id=<?=$row['sID']?>">ADD</a>
+                <a href="../payment/displayPayment.php?id=<?=$row['sID']?>">VIEW</a>
             </td>
-            
+
             <td>
-                <a href="editStudentCourse.php?scid=<?= $row['scID']?> &sid=<?=$id ?>">EDIT</a>
-                <a href="deleteStudentCourse.php?scid=<?= $row['scID']?> &sid=<?=$id ?>">DELETE</a>
+                <a href="editStudentCourse.php?scid=<?= $row['scID'] ?> &sid=<?= $id ?>">EDIT</a>
+                <a href="deleteStudentCourse.php?scid=<?= $row['scID'] ?> &sid=<?= $id ?>">DELETE</a>
 
             </td>
         </tr>

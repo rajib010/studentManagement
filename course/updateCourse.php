@@ -1,6 +1,6 @@
 <?php
 include("../config.php");
-include("../navbar.php");
+include("../pages/navbar.php");
 $id = $_GET['id'];
 $sql = "SELECT * FROM course_record WHERE cID=$id";
 $result = $conn->query($sql);

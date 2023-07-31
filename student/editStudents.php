@@ -1,6 +1,6 @@
 <?php
 include("../config.php");
-include("../navbar.php");
+include("../pages/navbar.php");
 $sid = $_GET['id'];
 $sql = "SELECT * FROM student_record WHERE sID= $sid";
 $result = $conn->query($sql);
@@ -21,6 +21,7 @@ if(isset($_POST['edit'])){
 
 while ($row=$result->fetch_assoc()){
 ?>
+<div class="container">
 
 <form action="" method="post">
 
@@ -42,3 +43,5 @@ while ($row=$result->fetch_assoc()){
         }
     ?>
 </form>
+
+</div>

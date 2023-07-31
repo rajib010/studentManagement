@@ -1,5 +1,4 @@
 <?php
-include("../../navbar.php");
 if (isset($_POST['addBtn'])) {
     include("../../config.php");
     $syllabus = $_POST['syllabus'];

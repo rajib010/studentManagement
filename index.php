@@ -1,22 +1,10 @@
-<form action="" method="post">
-    <label for="username" id="username">Username</label>
-    <input type="text" name="username" id="username"> <br> <br>
-
-    <label for="password" id="password">Password</label>
-    <input type="password" name="password" id="password"> <br> <br>
-
-    <button type="submit" name="LoginBtn">Login</button>
-    <button type="submit" name="SignUpBtn">Sign Up</button>
-
-</form>
-
 <?php
 include "config.php";
 session_start();
 
 //code for signup option...
 if (isset($_POST['SignUpBtn'])) {
-    header('location: register.php');
+    header('location: ./register.php');
 }
 
 //code for login option...
@@ -30,33 +18,113 @@ elseif (isset($_POST['LoginBtn'])) {
 
     //if no user found..
     if (empty($row)) {
-        echo "user not found";
+        echo "<script> alert('user not found')</script>";
     }
     //if user found
-    else {
-
-        //if password matches
-        if ($row['Password'] == $password) {
-
+    else if ($username == $row['UserName']) {
+        //if password doesnot matches
+        if ($password != $row['Password']) {
+            echo "<script> alert('invalid password')</script>";
+        } else if ($password == $row['Password']) {
             //checking if super user
             if ($row['UserType'] == 1) {
                 $_SESSION['userName'] = $username;
                 $_SESSION['passWord'] = $password;
-                header('location: admin_panel/index.php');
-            }else{// for normal user
-
+                $_SESSION['userLevel'] = 1;
+                header('location: ./pages/dashboard.php');
+            } // for normal user
+            elseif ($row['UserType'] == 0) {
                 $_SESSION['userName'] = $username;
                 $_SESSION['passWord'] = $password;
-                header('location: dashboard.php'); 
+                $_SESSION['userLevel'] = 0;
+                header('location: ./pages/dashboard.php');
+            } else {
+                echo "<script> alert('user not found')</script>";
             }
-        }
-        //if password doesnot matches
-        elseif ($row['Password'] != $password) {
-            echo "invalid password";
         }
     }
 }
 
 
 
+
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <!doctype html>
+
+    <html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>Student Management</title>
+
+        <link rel="stylesheet" href="./css/style.css">
+
+    </head>
+
+    <body> <!-- partial:index.partial.html -->
+
+        <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
+
+            <div class="signin">
+
+                <div class="content">
+
+                    <h2>Sign In</h2>
+
+                    <div class="form">
+                        <form action="index.php" method="post">
+                            <div class="inputBox">
+
+                                <input type="text" name="username" required> <i>Username</i>
+
+                            </div>
+
+                            <div class="inputBox">
+
+                                <input type="password" name="password" required> <i>Password</i>
+
+                            </div>
+
+                            <div class="links">
+                                <a href="./forgotPassword/sendCodeTo.php">Forgot Password?</a>
+                                <a href="./register.php">Signup</a>
+
+                            </div>
+
+                            <div class="inputBox">
+                                <button type="submit" class="login-btn" name="LoginBtn">Login</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section> <!-- partial -->
+
+    </body>
+
+    </html>
+    <!-- partial -->
+
+</body>
+
+</html>

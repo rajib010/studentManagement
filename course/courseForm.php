@@ -1,6 +1,6 @@
 <?php
-include("../navbar.php");
 include("../config.php");
+include("../pages/navbar.php");
 ?>
 
 <form action="confirmCourse.php" method="post">

@@ -1,4 +1,8 @@
-<form action="" method="post">
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<div class="container">
+    <br> <br>
+
+<form action="" class="form-control" method="post">
     <label for="username" id="username">Username</label>
     <input type="text" name="username" id="username"> <br> <br>
 
@@ -14,13 +18,14 @@
     <label for="phone" id="phone">Phone Number</label>
     <input type="phone" name="phone" id="phone"> <br> <br>
 
-    <button type="submit" name="submitBtn">Register</button>
+    <button type="submit" name="register">Register</button>
 </form>
+</div>
 
 <?php
 include "config.php";
 
-if (isset($_POST['submitBtn'])) {
+if (isset($_POST['register'])) {
     include "config.php";
     $username = $_POST['username'];
     $conPassword=$_POST['ConPassword'];

@@ -1,8 +1,6 @@
 <?php
 include("../config.php");
 $id = $_GET['id'];
-echo $id;
-die();
 $sql = "SELECT * FROM payment_record 
           join student_course on student_course.scID= payment_record.scID 
           join student_record on student_record.sID = student_course.sID 

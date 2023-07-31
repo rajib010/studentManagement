@@ -22,6 +22,6 @@
     </select> <br>
     Advance Payment
         <input type="number" name="advPayment">
-        <input type="hidden" name="student" value="<?=$_GET['id']?>">
+        <input type="hidden" name="student" value= "<?=$_GET['id']?>">
         <button type="submit" name="add">Add</button>
 </form>
