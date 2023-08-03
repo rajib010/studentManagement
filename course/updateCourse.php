@@ -7,8 +7,8 @@ $result = $conn->query($sql);
 
 if (isset($_POST['updateBtn'])) {
 
-    $title=$_POST['CourseTitle'];
-    $duration=$_POST['CourseDuration'];
+    $title=filteration($_POST['CourseTitle']);
+    $duration =$_POST['CourseDuration'];
     $price=$_POST['CoursePrice'];
 
     $sql="UPDATE course_record SET Title='$title',Duration='$duration',Price='$price' WHERE cID=$id";

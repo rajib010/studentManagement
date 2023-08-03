@@ -1,5 +1,6 @@
 <?php
 include "../config.php";
+include "../functions.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -39,13 +40,10 @@ function sendMail($email, $reset_token)
         return false;
     }
 }
-
-
-
     if (isset($_POST['submitBtn'])) {
     $query = "SELECT * FROM login where Email=:email";
     $stmt1 = $pdo->prepare($query);
-    $stmt1->bindParam(':email', $_POST['rst-email']);
+    $stmt1->bindParam(':email', filteration($_POST['rst-email']));
     $stmt1->execute();
     if ($stmt1) {
         if ($stmt1->rowCount() == 1) {
@@ -55,9 +53,9 @@ function sendMail($email, $reset_token)
             $query5 = $pdo->prepare("UPDATE login set resettoken=:resettoken,   tokenexpired=:tokenexpired where Email=:email");
             $query5->bindParam(':resettoken', $reset_token);
             $query5->bindParam(':tokenexpired', $date);
-            $query5->bindParam(':email', $_POST['rst-email']);
+            $query5->bindParam(':email', filteration($_POST['rst-email']));
             $query5->execute();
-            if ($query5 && sendMail($_POST['rst-email'], $reset_token)) {
+            if ($query5 && sendMail(filteration($_POST['rst-email']), $reset_token)) {
                 echo "
                 <script>
                     alert('Password reset link sent to mail ');

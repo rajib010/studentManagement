@@ -1,5 +1,7 @@
 <?php
 include "../config.php";
+include "../functions.php";
+
 session_start();
 if (empty($_SESSION['userName'])) {
     header('location: ../index.php');

@@ -112,7 +112,7 @@ if (isset($_GET['email']) && isset($_GET['rest_token'])) {
                     $update->bindParam(':password', $pass);
                     $update->bindValue(':resettoken', NULL, PDO::PARAM_NULL);
                     $update->bindValue(':tokenexpired', NULL, PDO::PARAM_NULL);
-                    $update->bindParam(':email', $_POST['email']);
+                    $update->bindParam(':email', filteration($_POST['email']));
                     $update->execute();
 
                     if ($update) {

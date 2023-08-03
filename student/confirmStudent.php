@@ -1,10 +1,12 @@
 <?php
     include ("../config.php");
-    $name=$_POST['sName'];
-    $gender=$_POST['gender'];
-    $address=$_POST['address'];
+    $name=filteration($_POST['sName']);
+    $gender=filteration($_POST['gender']);
+    $address=filteration($_POST['address']);
     $phone=$_POST['pNumber'];
-    $email=$_POST['email'];
+    echo $phone;
+    die();
+    $email=filteration($_POST['email']);
     $sql= "INSERT INTO student_record(Name, Gender, Address, Contact, Email) VALUES('$name','$gender','$address','$phone','$email')";
     $conn->query($sql);
 

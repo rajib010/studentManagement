@@ -1,5 +1,6 @@
 <?php
 include("../config.php");
+include("../functions.php");
 
 $scid = $_GET['scid'];
 $sid = $_GET['sid'];
@@ -13,11 +14,11 @@ $result1 = $conn->query($sql1);
 
 if (isset($_POST['editBtn'])) {
     // $id = $_GET['id'];
-    $scid = $_POST['student'];
+    $scid =filteration($_POST['student']);
 
    // $sid = $_GET['sid'];
-    $cid = $_POST['course'];
-    $payment = $_POST['advPayment'];
+    $cid = filteration($_POST['course']);
+    $payment = filteration($_POST['advPayment']);
     $sql = "UPDATE student_course SET cID=$cid, Amount=$payment WHERE scID=$scid";
     $var = $conn->query($sql);
     header("location:displayStudentCourse.php?id=$sid");

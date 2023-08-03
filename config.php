@@ -5,6 +5,8 @@
     $db_name='studentmanagement';
     $conn= mysqli_connect($host,$username,$password,$db_name);
 
+
+    
 ?>
 <?php
     $pdo= new PDO('mysql:host=localhost;dbname=studentmanagement','root','');

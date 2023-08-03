@@ -29,7 +29,7 @@ $result = $conn->query($sql);
     <br> <br>
 
 
-<table border="1">
+<table border="1"  class="table table-hover">
     <thead>
         <tr>
             <th>cID</th>

@@ -12,7 +12,7 @@ WHERE student_course.sID = $id";
 
 $result = $conn->query($sql);
 ?>
-<table border="1">
+<table border="1"  class="table table-hover">
     <thead>
         <tr>
             <th>Student ID</th>

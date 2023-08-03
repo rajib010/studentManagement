@@ -11,7 +11,9 @@
 <?php
     if(isset($_POST['submitBtn'])){
         include("../config.php");
-        $stream=$_POST['stream'];
+        include("../functions.php");
+
+        $stream=filteration($_POST['stream']);
         $sql="INSERT INTO stream(Stream) Values('$stream')";
         $conn->query($sql);
     }
